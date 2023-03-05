@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <title>Bubble Game</title>
+
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Win -->
+    <div class="show_result">
+        <div class="show__block"> 
+
+            <div>
+                <span class="score win-icon">🎉</span>
+                <span class="score_txt">Ton score :
+                    <h1 class="score" id="scoreNumber"> 0</h1>
+                </span>
+            </div>
+
+            <div>
+                <button id="play" class="btn btn-play">Continuer</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loose -->
+    <div class="show_result" id="showLoose">
+        <div class="show__block"> 
+
+            <div>
+                <span class="score loose-icon">😭</span>
+                <span class="score_txt">Tu as perdu
+                    <span class="score_txt">Ton score :
+                        <h1 class="score" id="scoreNumberFinal"> 0</h1>
+                    </span>
+                </span>
+            </div>
+            
+            <div>
+                <button id="rePlay" class="btn btn-play"> Rejouer</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Timer -->
+<!--     <div class="show_result" id="showTimer">
+        <div class="show__block"> 
+
+            <div>
+                <span class="timeOut" id="timeOut">⏰</span>
+                <span class="timeOut_txt"> Il reste plus que 
+                    <span class="timeOut" id="timeOutNumber"> 
+                        <h1>10</h1>
+                        <span>s</span>
+                    </span>
+                </span>
+            </div>
+
+            <div>
+                <button id="play" class="btn btn-play">Jouer</button>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- Level Up -->
+    <div class="show_result" id="showLevelUp">
+        <div class="show__block"> 
+
+
+            <div class="score_txt"> 
+                
+                <div class="check-logo" >
+                    <svg width="66" height="66" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="23" cy="23" r="23" fill="#1DD1A1" fill-opacity="0.22"/>
+                        <path d="M34.2727 15L18.2727 31L11 23.7273" stroke="#1DD1A1" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>                        
+                </div>
+
+                <div>
+                    <span class="score" id="levelUp">
+                        <h1>Niveau </h1> &nbsp;
+                        <h1>2</h1>&nbsp;
+                        <h1>🚀</h1>
+                    </span>
+                    <p id="levelUp-info">Bravo, tu as atteint le niveau supérieur !</p>
+                </div>
+
+                
+                <div class="info-result">
+
+                    <div class="info-result__div">
+                        <span class="info-result__icon">🎉</span>
+                        <p class="score-in-levelUp" >Ton score : &nbsp;
+                            <span class="score scoring" id="scoreNumber-when-levelUp"> 0</span>
+                        </p>
+                    </div>
+
+                    <div class="info-result__div">
+                        <span class="info-result__icon">🏆</span>
+                        <p class="score-in-levelUp score-in-levelUp-record" >
+                                Record : &nbsp;
+                                <span class="score scoring" id="record"> 0</span>
+                                <span class="new-record">Nouveau record</span>
+                        </p>
+                    </div>
+
+                    <div class="info-result__div">
+                        <span class="info-result__icon">🎱</span>
+                        <p class="score-in-levelUp score-in-levelUp-loosed" >
+                                Nombre total de coups : &nbsp;
+                                <span class="score scoring"> 0</span>
+                        </p>
+                    </div>
+
+                    <div class="info-result__div">
+                        <span class="info-result__icon">👀</span>
+                        <p class="score-in-levelUp score-in-levelUp-vision" >
+                            <span class="score" style="font-size: unset;display: flex;align-items: center;"> 
+                                Ta vison : &nbsp;
+                                <span class="score scoring" id="score-vision"> 0</span>
+                            </span>
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div>
+                <button id="play-in-levelUp" class="btn btn-play">Jouer</button>
+            </div>
+
+        </div>
+    </div>
+    
+
+    <main>
+
+        <div class="container">
+
+<!--             <div class='timer' style="display: flex;justify-content: center;align-items: center;">
+                <svg class="progress-circle" viewBox="-2 -2 104 104">
+                    <path id="progress_svg" d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" ></path>
+                </svg>  
+                <div class="timeOut" id="timeOutNumber"> 
+                    <span style="font-size:34px"></span>
+                    <span>s</span>
+                </div>
+            </div> -->
+
+            <div class="div__header">
+                <div class="header__div header-top">
+                    <div>
+                        <span class="logo__div">
+                            <svg width="44" height="45" viewBox="0 0 44 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g filter="url(#filter0_i_551_331)">
+                                <circle r="22" transform="matrix(-1 0 0 1 22 22.8516)" fill="#1DD1A1"/>
+                                </g>
+                                <defs>
+                                <filter id="filter0_i_551_331" x="-9" y="-8.14844" width="53" height="53" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                                <feOffset dx="-9" dy="-9"/>
+                                <feGaussianBlur stdDeviation="5.5"/>
+                                <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                                <feColorMatrix type="matrix" values="0 0 0 0 0.0166667 0 0 0 0 0.0166667 0 0 0 0 0.0166667 0 0 0 0.1 0"/>
+                                <feBlend mode="normal" in2="shape" result="effect1_innerShadow_551_331"/>
+                                </filter>
+                                </defs>
+                            </svg>                                                                        
+                            <span>Bubble Game</span> 
+                        </span>
+                    </div>
+                   <button >
+                       <span id="sound">Son <span class="sound_logo"></span></span>
+                   </button>
+                </div>
+
+               <div class="header__div game-info">
+                   <div id="lifes">
+                       <span>Vies</span>
+                       <div class="lifes-icon"></div>
+                   </div>
+   
+                   <div class="level">
+                       <span>Niveau</span>
+                       <span id="level-info"> 
+                           <span>0</span>
+                           <span>👶</span>
+                       </span>
+                   </div>
+               </div>
+            </div>
+
+
+            <div class="wrapper"></div>
+        </div>
+
+    </main>
+
+    <div style="position: absolute;bottom: 1rem;display: flex;justify-content: center;width: 100%;text-align: center;">
+        <span>Développé par kiwee</span>
+    </div>
+
+    <h1 id="nombre"></h1>
+    <script type="module" src="app.js"></script>
+</body>
+</html>
