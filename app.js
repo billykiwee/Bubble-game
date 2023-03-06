@@ -16,26 +16,26 @@ const play   = document.querySelector('#play')
 const rePlay = document.querySelector('#rePlay')
 
 // Score
-let scoreNumber        = document.querySelector('#scoreNumber')
-let scoreNumberFinal   = document.querySelector('#scoreNumberFinal')
-let scoreNumberLevelUp = document.querySelector('#scoreNumber-when-levelUp')
-let recordScore        = document.querySelector('.score-in-levelUp-record')
+const scoreNumber        = document.querySelector('#scoreNumber')
+const scoreNumberFinal   = document.querySelector('#scoreNumberFinal')
+const scoreNumberLevelUp = document.querySelector('#scoreNumber-when-levelUp')
+const recordScore        = document.querySelector('.score-in-levelUp-record')
 
 // Play
-let heart     = document.querySelector('.lifes-icon')
-let levelInfo = document.querySelector('#level-info')
+const heart     = document.querySelector('.lifes-icon')
+const levelInfo = document.querySelector('#level-info')
 
 /////// RÉGLAGE DU JEU
-let record = 1
-let scoreCount = 0
-let LIFES = 4
-let BLOCK = 9
+const record = 1
+const scoreCount = 0
+const LIFES = 4
+const BLOCK = 9
 
 
 // Niveaux
 const LEVEL_INFO =  Object.values(levelArray)
-let startLEVEL = () => { return opacityLevel } 
-let LEVEL = startLEVEL()
+const startLEVEL = () => { return opacityLevel } 
+const LEVEL = startLEVEL()
 ///////
 
 
@@ -48,11 +48,13 @@ levelInfo.children[1].innerHTML = LEVEL_INFO[0].icon
 function CREATE_BLOCK() {
     for (let i = 0; i < BLOCK; i++) {
         let blockBtn    = ` <button class="block"></button> `
-        let newDivBlock = document.createElement('div') ; newDivBlock.setAttribute('class', 'div-block')
+        let newDivBlock = document.createElement('div') ; 
+        newDivBlock.setAttribute('class', 'div-block')
         let newBlock    = wrapper.appendChild(newDivBlock)
         let loadBlock   = newBlock.innerHTML = blockBtn
     }
-} CREATE_BLOCK()
+} 
+CREATE_BLOCK()
 
 // Ajout block à chaque niveau 
 function add_block() {
@@ -84,8 +86,8 @@ let lifeX = () => { return LIFES } ; let LIVESX = lifeX()
 /// Réglage couleur
 function generateColor() {
     // Coloriser toutes les bulles
-    function color(r, g, b) { 
-        return ` ${r}, ${g}, ${b} ` 
+    function color(rgb) { 
+        return rgb
     }
 
     function getRandom() {
@@ -98,8 +100,7 @@ function generateColor() {
         getRGB.push( getRandom() )
     }
 
-    const alea =  color(getRGB.join(',')) 
-    //wrapper.style.background = `rgb(${alea} , 80% )` 
+    const alea =  color(getRGB.toString()) 
     return alea
 } generateColor() 
 

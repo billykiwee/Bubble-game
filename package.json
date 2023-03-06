@@ -1,0 +1,21 @@
+{
+  "name": "bubble-game",
+  "version": "1.0.0",
+  "description": "Find that bubble !",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/billykiwee/qlee.me.git"
+  },
+  "author": "billy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/billykiwee/qlee.me/issues"
+  },
+  "homepage": "https://github.com/billykiwee/qlee.me#readme"
+}
